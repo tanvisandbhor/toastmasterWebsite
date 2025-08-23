@@ -1,0 +1,58 @@
+.marquee-container {
+  position: relative;
+  overflow: hidden;
+  height: 120px;
+  background-color: #f9f9f9;
+}
+
+.marquee {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.marquee-track {
+  display: flex;
+  animation: scroll-marquee 40s linear infinite;
+  /* Ensure track is really wide */
+  min-width: 200%;
+}
+
+.marquee-item {
+  flex: 0 0 auto;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+}
+
+.marquee-item img {
+  height: 80px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Infinite scroll */
+@keyframes scroll-marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }  /* Only shift 50% to loop seamlessly */
+}
+
+/* Fading Blur Edges */
+.fade-left, .fade-right {
+  position: absolute;
+  top: 0;
+  width: 100px;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.fade-left {
+  left: 0;
+  background: linear-gradient(to right, #f9f9f9, transparent);
+}
+
+.fade-right {
+  right: 0;
+  background: linear-gradient(to left, #f9f9f9, transparent);
+}
